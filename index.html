@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="page-head">Some header</header>
+    <main>
+      <aside class="categories">
+        <div class="categories-block">
+          <h2 class="categories-title">Categories</h2>
+        </div>
+        <button class="my-basket">My orders</button>
+      </aside>
+      <div class="products-wrap">
+        <section class="products article-wrap"></section>
+      </div>
+      <aside class="product-info article-wrap">
+        <article class="card-info"></article>
+        <form class="purchase-form hide">
+          <div class="form-line">
+            <label for="full-name">Your full name*:</label>
+            <input type="text" name="full-name" id="full-name" required />
+          </div>
+          <div class="form-line">
+            <label for="city-select">Your city*:</label>
+            <select name="city-select" id="city-select" required></select>
+          </div>
+          <div class="form-line">
+            <label for="post-office-select">Choose a post office*:</label>
+            <select name="post-office-select" id="post-office-select" required>
+              <option value="null">Choose city before!</option>
+            </select>
+          </div>
+          <div class="form-line">
+            <p>Payment method*:</p>
+            <div>
+              <div>
+                <label for="payment-after">After receiving</label>
+                <input
+                  type="radio"
+                  name="payment-type"
+                  id="payment-after"
+                  value="post-office"
+                  required
+                />
+              </div>
+              <div>
+                <label for="payment-now">Credit card now</label>
+                <input
+                  type="radio"
+                  name="payment-type"
+                  value="credit-card"
+                  id="payment-now"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-line">
+            <label for="product-quantity">Quantity:</label>
+            <input
+              type="number"
+              name="product-quantity"
+              id="product-quantity"
+              min="1"
+              value="1"
+            />
+          </div>
+          <div class="form-line">
+            <label for="purchase-comment">Your comment:</label>
+            <textarea
+              name="purchase-comment"
+              id="purchase-comment"
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+          <button class="form-button">Buy</button>
+        </form>
+      </aside>
+    </main>
+    <footer class="page-foot">Some footer</footer>
+    <div class="modal hide">
+      <div class="modal-info">some content</div>
+    </div>
+    <script type="module" src="./src/js/main.mjs"></script>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1.5fr 5fr 2fr;
+}
+
+.page-head,
+.page-foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  background-color: #548fc3;
+}
+
+.products-wrap {
+  background-color: #548fc3;
+}
+
+.categories {
+  background-color: brown;
+  padding: 30px;
+}
+
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: brown;
+  padding: 10px 0 0 20px;
+}
+
+.categories-item {
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+}
+
+.categories-item:hover {
+  color: white;
+}
+
+.article-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 50px;
+}
+
+.card {
+  min-width: 250px;
+  max-width: 250px;
+}
+
+.card-shop {
+  cursor: pointer;
+}
+
+.card-img-wrap {
+  max-width: 250px;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.card-title {
+  text-transform: capitalize;
+  margin-bottom: 5px;
+  font-size: 30px;
+}
+
+.card-description {
+  padding-top: 10px;
+  font-size: 24px;
+}
+
+.product-info {
+  background-color: brown;
+}
+
+.buy-button {
+  width: 100%;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.purchase-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-line {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-line input,
+.form-line textarea,
+.form-line select {
+  outline: 0;
+  border: 0;
+  padding: 10px;
+}
+
+.form-button {
+  padding: 10px;
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(10px);
+  height: 100vh;
+  width: 100vw;
+}
+
+.modal-info {
+  padding: 15px;
+  min-width: 350px;
+  min-height: 350px;
+  background-color: bisque;
+  border-radius: 7px;
+}
+
+.hide {
+  display: none;
+}
+
+.utils-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.my-basket {
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.remove-purchase {
+  padding: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.categories-block {
+  margin-bottom: 15px;
+}
