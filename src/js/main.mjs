@@ -30,7 +30,7 @@ const renderModalWindow = (purchaseData) => {
     productInfoElement.querySelector(".card-title").textContent;
   const productPrice = productInfoElement
     .querySelector(".card-price")
-    .textContent.toLowerCase();
+    .textContent.match(/\d+/);
 
   const cityObj = cityListAPI.find((c) => c.cityId === cityId);
   const { officeName } = cityObj.cityPostOffices.find(
@@ -40,7 +40,9 @@ const renderModalWindow = (purchaseData) => {
   modalInnerElement.innerHTML = `
   <h2>Purchase info</h2>
   <div>
-    <p>You purchased x${productQuantity} ${productNamePurchased} for ${productPrice}.</p>
+    <p>You purchased x${productQuantity} ${productNamePurchased} for ${
+    productPrice * productQuantity
+  }$.</p>
     <p>Delivery city: ${cityObj.cityName}, ${officeName}</p>
     <p>Payment type: ${
       paymentType === "credit-card" ? "credit card now" : "after receiving"
@@ -243,7 +245,6 @@ const showDetailedInfo = (e) => {
       cityId,
       purchaseComment,
     } = targetedElement;
-    console.log(purchaseDate);
     const capitalizedCity = cityId.slice(0, 1).toUpperCase() + cityId.slice(1);
     const modalInnerElement = modalWindow.querySelector(".modal-info");
 
@@ -254,7 +255,7 @@ const showDetailedInfo = (e) => {
       <p>Quantity: ${productQuantity}</p>
       <p>Order date: ${purchaseDate}</p>
       <p>Product discription: ${productDisc}</p>
-      <p>Price: ${price}$</p>
+      <p>Price: ${price * productQuantity}$</p>
       <p>Custumer name: ${fullName}</p>
       <p>Delivery city: ${capitalizedCity}</p>
       ${
@@ -300,7 +301,15 @@ const showUserPurchases = () => {
   }
 
   getLocalStoragePurchase().forEach(
-    ({ productName, imgUrl, price, purchaseDate, productId, personalKey }) => {
+    ({
+      productName,
+      imgUrl,
+      price,
+      purchaseDate,
+      productId,
+      personalKey,
+      productQuantity,
+    }) => {
       const productItemEl = document.createElement("article");
       productItemEl.className = "card card-shop card-purchased";
       productItemEl.dataset.id = productId;
@@ -312,7 +321,7 @@ const showUserPurchases = () => {
       <h3 class="card-title">${productName}</h3>
       <div class="utils-info">
         <span>${purchaseDate}</span>
-        <span>${price}$</span>
+        <span>${price * productQuantity}$</span>
       </div>
       <button class="remove-purchase">Remove</button>
       `;
